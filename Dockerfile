@@ -28,8 +28,8 @@ COPY requirements.txt .
 RUN pip3 install -r requirements.txt
 
 # Switching to a non-root user
-RUN adduser --disabled-password --gecos '' myuser
-USER myuser
+RUN adduser --disabled-password --gecos '' deeluser
+USER deeluser
 
 # Start server
 CMD python app.py
