@@ -16,7 +16,7 @@ ENV PYTHONUNBUFFERED 1
 
 # Install pip requirements
 COPY requirements.txt .
-RUN python3 -m pip install --upgrade pip
+RUN python3 -m pip install pip
 RUN pip install -r requirements.txt
 
 # Switching to a non-root user
