@@ -45,7 +45,7 @@ jobs:
         tags: ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.REPO_NAME }}:latest
 
   deploy:
-    if: github.event.pull_request.merged == true
+#    if: github.event.pull_request.merged == true
     needs: build
     runs-on: ubuntu-latest
     steps:
