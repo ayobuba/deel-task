@@ -69,4 +69,4 @@ jobs:
         ./get_helm.sh
     - name: Deploy to EKS with Helm
       run: |
-        helm upgrade --install ${{ secrets.REPO_NAME }} ./deel-task-helm --set image.repository=${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.REPO_NAME }},image.tag=latest
+        helm upgrade --install deel-task-release ./deel-task-helm --set image.repository=${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.REPO_NAME }},image.tag=latest
