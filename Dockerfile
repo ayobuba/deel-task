@@ -1,5 +1,6 @@
 # Base Image
-FROM arm64v8/python:3.10-slim-buster
+FROM python:3.10-slim-buster
+#FROM arm64v8/python:3.10-slim-buster
 
 # Create and set working directory
 WORKDIR /app
