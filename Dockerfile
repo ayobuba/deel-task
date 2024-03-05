@@ -14,9 +14,12 @@ ENV PYTHONDONTWRITEBYTECODE 1
 # Prevents Python from buffering stdout and stderr (equivalent to python -u option)
 ENV PYTHONUNBUFFERED 1
 
+# Install pip
+ADD https://bootstrap.pypa.io/get-pip.py get-pip.py
+RUN python3 get-pip.py
+
 # Install pip requirements
 COPY requirements.txt .
-RUN python3 -m pip install pip
 RUN pip install -r requirements.txt
 
 # Switching to a non-root user
