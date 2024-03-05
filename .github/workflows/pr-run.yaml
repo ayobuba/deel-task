@@ -69,4 +69,7 @@ jobs:
         ./get_helm.sh
     - name: Deploy to EKS with Helm
       run: |
-        helm upgrade --install release ./deel-task-helm --set image.repository=${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.REPO_NAME }},image.tag=latest,environment.DATABASE_URL=postgresql://${{ secrets.POSTGRES_USER }}:${{ secrets.POSTGRES_PASSWORD }}@db:5432/${{ secrets.POSTGRES_DB }}
+        helm upgrade --install release ./deel-task-helm \
+        --set image.repository=${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.REPO_NAME }}, \
+        image.tag=latest, \
+        database.url=${{ secrets.DATABASE_URL }}
