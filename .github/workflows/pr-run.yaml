@@ -69,5 +69,9 @@ jobs:
         ./get_helm.sh
     - name: Deploy to EKS with Helm
       run: |
-        helm upgrade --install reverse-ip ./deel-task-helm --set image.repository=${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.REPO_NAME }},image.tag=latest,database.url=${{ secrets.DATABASE_URL }}
-        
+        # Retrieve the service name
+        SERVICE_NAME=$(kubectl get services | grep 'deel-task-helm' | awk '{print $1}')
+        helm upgrade --install reverse-ip ./deel-task-helm --set image.repository=${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.REPO_NAME }},\
+        image.tag=latest,environment.DATABASE_URL=postgresql://${{ secrets.POSTGRES_USER }}:${{ secrets.POSTGRES_PASSWORD }}@$SERVICE_NAME:5432/${{ secrets.POSTGRES_DB }}
+
+
