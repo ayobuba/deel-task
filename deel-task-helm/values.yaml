@@ -6,7 +6,7 @@ image:
   tag: "latest"
 
 service:
-  type: Nodeport
+  type: NodePort
   port: 9001
 
 resources: {}
