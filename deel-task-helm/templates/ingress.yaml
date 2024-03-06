@@ -15,6 +15,6 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: {{ include "deel-task-helm.fullname" . }}
+                name: reverse-ips-deel-task-helm
                 port:
                   number: {{ .Values.service.port }}
