@@ -22,8 +22,8 @@ COPY requirements.txt .
 RUN pip3 install -r requirements.txt
 
 # Switching to a non-root user
-RUN adduser --disabled-password --gecos '' deelAdmin
-USER deelAdmin
+RUN adduser --disabled-password --gecos '' deeluser
+USER deeluser
 
 # Set the entrypoint and start server
 ENTRYPOINT ["/app/entrypoint.sh"]
