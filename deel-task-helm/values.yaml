@@ -71,14 +71,10 @@ resources:
      cpu: 1000m
      memory: "1Gi"
 
-livenessProbe:
-  httpGet:
-    path: /
-    port: http
-readinessProbe:
-  httpGet:
-    path: /
-    port: http
+livenessProbe: {}
+
+readinessProbe: {}
+
 
 autoscaling:
   enabled: false
