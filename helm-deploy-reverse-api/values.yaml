@@ -11,6 +11,9 @@ service:
 
 resources: {}
 
+serviceAccount:
+  create: true
+
 env:
   POSTGRES_USER: deeluser
   POSTGRES_PASSWORD: geostore123
