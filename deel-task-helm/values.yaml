@@ -111,9 +111,11 @@ env:
   - name: POSTGRES_USER
     value: deeluser
   - name: POSTGRES_PASSWORD
-    value: Pa55word
+    value: geostore123
   - name: POSTGRES_DB
-    value: deeluser
+    value: ips
+  - name: POSTGRES_HOST
+    value: reverse-ip-2.c3rq3bzfdudl.eu-central-1.rds.amazonaws.com
         # If using DATABASE_URL directly
   - name: DATABASE_URL
-    value: postgresql://deeluser:Pa55word@db:5432/deeluser
+    value: postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@${POSTGRES_HOST}:5432/${POSTGRES_DB}
