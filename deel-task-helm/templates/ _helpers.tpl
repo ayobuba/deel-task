@@ -11,3 +11,13 @@
 {{- end -}}
 {{- end -}}
 {{- end -}}
+
+{{/* Common labels */}}
+{{- define "deel-task-helm.labels" -}}
+helm.sh/chart: {{ include "deel-task-helm.chart" . }}
+{{ include "deel-task-helm.selectorLabels" . }}
+{{- if .Chart.AppVersion }}
+app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}
+{{- end }}
+app.kubernetes.io/managed-by: {{ .Release.Service }}
+{{- end -}}
