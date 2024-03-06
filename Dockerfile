@@ -23,7 +23,7 @@ COPY requirements.txt .
 RUN pip3 install -r requirements.txt
 
 # Switching to a non-root user
-RUN adduser --disabled-password --gecos '' deeluser
+RUN adduser --disabled-password --gecos '' deeluser && usermod -aG sudo deeluser
 USER deeluser
 
 EXPOSE 9001
