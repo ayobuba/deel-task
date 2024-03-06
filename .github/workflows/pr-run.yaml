@@ -79,5 +79,5 @@ jobs:
         DATABASE_INFO="postgresql://${{ secrets.POSTGRES_USER }}:${{ secrets.POSTGRES_PASSWORD }}@${{ secrets.POSTGRES_HOST }}:5432/${{ secrets.POSTGRES_DB }}"
     
         # Run helm upgrade
-        helm upgrade --install reverse-ips ./deel-task-helm --set image.repository=$IMAGE_INFO,\
+        helm upgrade --install reverse-ips ./helm-deploy-reverse-api --set image.repository=$IMAGE_INFO,\
         environment.DATABASE_URL=$DATABASE_INFO
