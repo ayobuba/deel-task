@@ -1,6 +1,8 @@
 # Base Image
 FROM python:3.10-slim-buster
 #FROM arm64v8/python:3.10-slim-buster
+RUN apt-get -q -y update
+RUN apt-get install -y gcc
 
 # Create and set working directory
 WORKDIR /app
@@ -17,16 +19,18 @@ ENV PYTHONUNBUFFERED 1
 
 ENV DATABASE_URL=postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@${SERVICE_NAME}:5432/${POSTGRES_DB}
 
-# ...
+# existing code...
 
-# Install pip
-#RUN apt-get update && apt-get install -y \
-#    gcc \
-#    libffi-dev \
-#    openssl-dev
-#ADD https://bootstrap.pypa.io/get-pip.py get-pip.py
-#RUN python3 get-pip.py
+# Copy entrypoint.sh
+COPY ./entrypoint.sh /app/entrypoint.sh
 
+# Make sure the entrypoint.sh file is executable
+RUN chmod +x /app/entrypoint.sh
+
+# Set the entrypoint
+ENTRYPOINT ["/app/entrypoint.sh"]
+
+# existing code...
 # Install pip requirements
 COPY requirements.txt .
 RUN pip3 install -r requirements.txt
@@ -36,4 +40,4 @@ RUN adduser --disabled-password --gecos '' deeluser
 USER deeluser
 
 # Start server
-CMD python app.py
+CMD flask db upgrade && python app.py
