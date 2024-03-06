@@ -26,3 +26,9 @@ app.kubernetes.io/managed-by: {{ .Release.Service }}
 {{- define "deel-task-helm.chart" -}}
 {{- printf "%s-%s" .Chart.Name .Chart.Version | replace "+" "_" | trunc 63 | trimSuffix "-" -}}
 {{- end -}}
+
+{{/* Selector labels */}}
+{{- define "deel-task-helm.selectorLabels" -}}
+app.kubernetes.io/name: {{ include "deel-task-helm.name" . }}
+app.kubernetes.io/instance: {{ .Release.Name }}
+{{- end -}}
