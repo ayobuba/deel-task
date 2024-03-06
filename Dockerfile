@@ -4,7 +4,7 @@ FROM python:3.11-slim-buster
 # Run as root
 USER root
 
-RUN apt-get -q -y update && apt-get install -y gcc curl net-tools \
+RUN apt-get -q -y update && apt-get install -y gcc curl net-tools lsof \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Create and set working directory
@@ -28,7 +28,9 @@ RUN pip3 install -r requirements.txt
 
 # Switching to a non-root user
 RUN adduser --disabled-password --gecos '' deeluser && usermod -aG sudo deeluser
-USER deeluser
+
+# Switch back to root user
+USER root
 
 EXPOSE 9001
 # Set the entrypoint and start server
