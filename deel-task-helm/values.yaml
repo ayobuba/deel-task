@@ -71,9 +71,15 @@ resources:
      cpu: 1000m
      memory: "1Gi"
 
-livenessProbe: {}
+livenessProbe:
+  httpGet:
+    path: /reverse
+    port: 8008
 
-readinessProbe: {}
+readinessProbe:
+  httpGet:
+    path: /reverse
+    port: 8008
 
 
 autoscaling:
