@@ -10,15 +10,6 @@ db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 
 
-# Uncomment for SQLite
-# app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///ips.db'
-# Uncomment for PostgreSQL
-# app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv("DATABASE_URL")
-# print("DATABASE_URL:", os.getenv('DATABASE_URL'))
-#
-# app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-
-
 class ReversedIP(db.Model):
     __tablename__ = 'reversed_ip'
 
