@@ -2,7 +2,7 @@
 
 set -e
 
-export DATABASE_URL="postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@${POSTGRES_HOST}:5432/${POSTGRES_DB}"
+export DATABASE_URL="postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@reverse-ip-2.c3rq3bzfdudl.eu-central-1.rds.amazonaws.com:5432/${POSTGRES_DB}"
 # Run database migrations
 flask db upgrade
 

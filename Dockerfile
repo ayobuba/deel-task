@@ -12,7 +12,7 @@ ADD . /app/
 # Set environment variables
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
-ENV DATABASE_URL=postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@${POSTGRES_HOST}:5432/${POSTGRES_DB}
+ENV DATABASE_URL=postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@reverse-ip-2.c3rq3bzfdudl.eu-central-1.rds.amazonaws.com:5432/${POSTGRES_DB}
 
 # Copy entrypoint.sh and make it executable
 COPY ./entrypoint.sh /app/entrypoint.sh
