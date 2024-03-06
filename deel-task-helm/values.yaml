@@ -52,7 +52,7 @@ ingress:
   hosts:
     - host: deel-task.plsg.io
       paths:
-        - path: /
+        - path: /reverse
           pathType: ImplementationSpecific
   tls: []
   #  - secretName: chart-example-tls
