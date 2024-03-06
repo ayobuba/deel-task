@@ -43,6 +43,9 @@ jobs:
         password: ${{ secrets.DOCKERHUB_TOKEN }}
     - name: Build and push Docker image
       run: |
+        export POSTGRES_USER=${{ secrets.POSTGRES_USER }}
+        export POSTGRES_PASSWORD=${{ secrets.POSTGRES_PASSWORD }}
+        export POSTGRES_DB=${{ secrets.POSTGRES_DB }}
         docker-compose build
         docker-compose push
 
