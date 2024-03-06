@@ -30,6 +30,8 @@ RUN chmod +x /app/entrypoint.sh
 # Set the entrypoint
 ENTRYPOINT ["/app/entrypoint.sh"]
 
+RUN python -c "from dotenv import load_dotenv; load_dotenv()"
+
 # existing code...
 # Install pip requirements
 COPY requirements.txt .
