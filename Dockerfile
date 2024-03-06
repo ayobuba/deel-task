@@ -1,5 +1,5 @@
 # Base Image
-FROM python:3.10-slim-buster
+FROM python:3.11-slim-buster
 #FROM arm64v8/python:3.10-slim-buster
 RUN apt-get -q -y update
 RUN apt-get install -y gcc

@@ -32,17 +32,19 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
+    - name: Install Docker Compose
+      run: |
+        sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+        sudo chmod +x /usr/local/bin/docker-compose
     - name: Login to DockerHub
       uses: docker/login-action@v1
       with:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_TOKEN }}
     - name: Build and push Docker image
-      uses: docker/build-push-action@v2
-      with:
-        context: .
-        push: true
-        tags: ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.REPO_NAME }}:latest
+      run: |
+        docker-compose build
+        docker-compose push
 
   deploy:
 #    if: github.event.pull_request.merged == true
@@ -71,7 +73,7 @@ jobs:
       run: |
         # Retrieve the service name
         SERVICE_NAME=$(kubectl get services | grep 'deel-task-helm' | awk '{print $1}')
-        helm upgrade --install reverse-ip ./deel-task-helm --set image.repository=${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.REPO_NAME }},\
+        helm upgrade --install reverse-ips ./deel-task-helm --set image.repository=${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.REPO_NAME }},\
         image.tag=latest,environment.DATABASE_URL=postgresql://${{ secrets.POSTGRES_USER }}:${{ secrets.POSTGRES_PASSWORD }}@$SERVICE_NAME:5432/${{ secrets.POSTGRES_DB }}
 
 
