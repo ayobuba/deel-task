@@ -17,7 +17,7 @@ ENV PYTHONDONTWRITEBYTECODE 1
 # Prevents Python from buffering stdout and stderr (equivalent to python -u option)
 ENV PYTHONUNBUFFERED 1
 
-ENV DATABASE_URL=postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@reverse-ips-deel-task-helm:5432/${POSTGRES_DB}
+ENV DATABASE_URL=postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@${SERVICE_NAME}:5432/${POSTGRES_DB}
 
 # existing code...
 
