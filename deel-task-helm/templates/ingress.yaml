@@ -4,7 +4,7 @@ metadata:
   name: {{ include "deel-task-helm.fullname" . }}
   annotations:
     alb.ingress.kubernetes.io/scheme: internet-facing
-    alb.ingress.kubernetes.io/ssl-redirect: True
+    alb.ingress.kubernetes.io/ssl-redirect: '443'
     # You can add other AWS ALB specific annotations here as required.
 spec:
   ingressClassName: alb
