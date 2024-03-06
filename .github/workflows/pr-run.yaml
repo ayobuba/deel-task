@@ -75,7 +75,7 @@ jobs:
     - name: Deploy to EKS with Helm
       run: |
         # Build Image Information
-        IMAGE_INFO="ayobuba/deel-task_web:latest"
+        IMAGE_INFO="ayobuba/deel-task_web"
         DATABASE_INFO="postgresql://${{ secrets.POSTGRES_USER }}:${{ secrets.POSTGRES_PASSWORD }}@$db:5432/${{ secrets.POSTGRES_DB }}"
     
         # Run helm upgrade
