@@ -27,8 +27,4 @@ resource "aws_db_instance" "deel-rds" {
   vpc_security_group_ids              = flatten(var.vpc_security_group_ids)
 }
 
-output "db_endpoint" {
-  value = aws_db_instance.deel-rds.endpoint
-}
-
 
