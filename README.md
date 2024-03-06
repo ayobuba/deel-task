@@ -65,3 +65,5 @@ The pipeline consists of three jobs: lint, build, and deploy.
 
 
 ##### Furthermore the pipeline can be configured to be deployed on a successful merge to the main branch. please uncomment `lines 53` in the `.github/workflows/pr-run.yaml` file to enable this feature.
+
+![Github Actions](./images/actions.png)
