@@ -20,7 +20,7 @@ spec:
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
             - name: http
-              containerPort: 9001
+              containerPort: 5000
               protocol: TCP
           env:
             - name: POSTGRES_USER
