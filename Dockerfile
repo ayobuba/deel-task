@@ -30,6 +30,7 @@ RUN chmod +x /app/entrypoint.sh
 # Set the entrypoint
 ENTRYPOINT ["/app/entrypoint.sh"]
 
+ADD .env .env
 RUN python -c "from dotenv import load_dotenv; load_dotenv()"
 
 # existing code...
