@@ -116,4 +116,4 @@ env:
     value: deeluser
         # If using DATABASE_URL directly
   - name: DATABASE_URL
-    value: postgresql://deeluser:Pa55word@reverse-ips-deel-task-helm:5432/deeluser
+    value: postgresql://deeluser:Pa55word@db:5432/deeluser
