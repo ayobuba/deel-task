@@ -3,23 +3,18 @@ kind: Ingress
 metadata:
   name: {{ include "deel-task-helm.fullname" . }}
   annotations:
-    # Specify the ingress.class as "alb" to use the AWS Load Balancer Controller
-    kubernetes.io/ingress.class: "alb"
-    # Configure ALB to be internet-facing
     alb.ingress.kubernetes.io/scheme: internet-facing
-    # Specify other ALB settings as needed, for example:
-    # Enable SSL redirection
     alb.ingress.kubernetes.io/ssl-redirect: 'true'
-    # Subnets annotation if you want to specify subnets
-    # alb.ingress.kubernetes.io/subnets: subnet-1234,subnet-5678
+    # You can add other AWS ALB specific annotations here as required.
 spec:
+  ingressClassName: alb
   rules:
-  - http:
-      paths:
-      - path: /reverse
-        pathType: Prefix
-        backend:
-          service:
-            name: {{ include "deel-task-helm.fullname" . }}
-            port:
-              number: {{ .Values.service.port }}
+    - http:
+        paths:
+          - path: /reverse
+            pathType: Prefix
+            backend:
+              service:
+                name: {{ include "deel-task-helm.fullname" . }}
+                port:
+                  number: {{ .Values.service.port }}
