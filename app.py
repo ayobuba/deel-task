@@ -31,7 +31,7 @@ with app.app_context():
     db.create_all()
 
 
-@app.route('/reverse')
+@app.route('/reverse', methods=['GET', 'POST'])
 def index():
     # IP address
     ip_address = request.remote_addr
