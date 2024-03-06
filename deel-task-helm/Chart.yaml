@@ -1,5 +1,5 @@
 apiVersion: v2
-name: helm-deploy-reverse-api
+name: deel-task-helm
 description: A Helm chart for Kubernetes
 
 # A chart can be either an 'application' or a 'library' chart.
