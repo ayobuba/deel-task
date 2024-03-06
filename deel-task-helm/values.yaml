@@ -105,3 +105,15 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
+
+# Add environment variables to the container
+env:
+  - name: POSTGRES_USER
+    value: deeluser
+  - name: POSTGRES_PASSWORD
+    value: Pa55word
+  - name: POSTGRES_DB
+    value: deeluser
+        # If using DATABASE_URL directly
+  - name: DATABASE_URL
+    value: postgresql://deeluser:Pa55word@db:5432/deeluser
