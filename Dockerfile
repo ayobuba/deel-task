@@ -26,6 +26,7 @@ RUN pip3 install -r requirements.txt
 RUN adduser --disabled-password --gecos '' deeluser
 USER deeluser
 
+EXPOSE 9001
 # Set the entrypoint and start server
 ENTRYPOINT ["/app/entrypoint.sh"]
 CMD flask db upgrade && python app.py
