@@ -12,8 +12,8 @@ service:
 resources: {}
 
 env:
-  POSTGRES_USER: deeluser
-  POSTGRES_PASSWORD: geostore123
-  POSTGRES_DB: ips
-  POSTGRES_HOST: reverse-ip-2.c3rq3bzfdudl.eu-central-1.rds.amazonaws.com
-  DATABASE_URL: postgresql://deeluser:geostore123@reverse-ip-2.c3rq3bzfdudl.eu-central-1.rds.amazonaws.com:5432/ips
+  POSTGRES_USER: ""
+  POSTGRES_PASSWORD: ""
+  POSTGRES_DB: "ips"
+  POSTGRES_HOST: ""
+  DATABASE_URL: ""
